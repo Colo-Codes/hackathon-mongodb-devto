@@ -40,10 +40,10 @@ export default function Home() {
         {definitions && definitions.map(definition => (
           <div key={definition.id} className="my-4">
             <h2 className="text-3xl font-bold">
-              {definition.title}
+              {definition.name}
             </h2>
             <p className="text-lg">
-              {definition.excerpt}
+              {definition.description}
             </p>
           </div>
         ))}

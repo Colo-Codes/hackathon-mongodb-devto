@@ -37,16 +37,7 @@ export default function Home() {
           Definitions
         </h1>
 
-        {definitions && definitions.map(definition => (
-          <div key={definition.id} className="my-4">
-            <h2 className="text-3xl font-bold">
-              {definition.title}
-            </h2>
-            <p className="text-lg">
-              {definition.excerpt}
-            </p>
-          </div>
-        ))}
+        {definitions && }
 
         <p className="mt-3 text-2xl">
         </p>

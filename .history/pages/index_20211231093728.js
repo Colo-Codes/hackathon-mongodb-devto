@@ -43,7 +43,7 @@ export default function Home() {
               {definition.title}
             </h2>
             <p className="text-lg">
-              {definition.excerpt}
+              {definition.description}
             </p>
           </div>
         ))}
