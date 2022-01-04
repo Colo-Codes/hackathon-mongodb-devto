@@ -49,7 +49,7 @@ export const Pagination = ({
                         if (i === currentPage + 5) {
                             return (
                                 <li key={number} className=''>
-                                    <span className='block px-4 py-2 leading-tight bg-white border border-gray-200 text-indigo-700 border-r-0 ml-0 rounded'>
+                                    <span className='block px-4 py-2 leading-tight bg-white border border-gray-200 text-indigo-700  border-r-0 ml-0 rounded'>
                                         ...
                                     </span>
                                 </li>

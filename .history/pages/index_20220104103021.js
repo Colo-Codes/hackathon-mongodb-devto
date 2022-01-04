@@ -49,13 +49,13 @@ export default function Home() {
 
       <div className="bg-white w-full min-h-screen" >
         <Header />
-        <Container>
+        {/* <Container>
           <Hero />
-          <main className="flex flex-col items-center justify-center w-full flex-1 sm:px-20">
+          <main className="flex flex-col items-center justify-center w-full flex-1 px-20">
             <Definitions definitions={currentDefinitions} />
-            {/* <Pagination definitionsPerPage={definitionsPerPAge} totalDefinitions={definitions.length} paginate={paginate} currentPage={currentPage} /> */}
-          </main>
-        </Container>
+            <Pagination definitionsPerPage={definitionsPerPAge} totalDefinitions={definitions.length} paginate={paginate} currentPage={currentPage} />
+          </main> */}
+        {/* </Container> */}
         <Footer />
       </div>
     </div >

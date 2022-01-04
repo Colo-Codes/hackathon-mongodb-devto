@@ -14,7 +14,7 @@ const Hero = () => {
             />
             <div className="bg-gray-900 bg-opacity-70 flex items-center h-full absolute w-full z-10">
                 <div className="p-10 max-w-xl">
-                    <h2 className="text-2xl text-white font-bold">MDN Web Docs Glossary: Definitions of Web-related terms</h2>
+                    <h2 className="text-2xl text-white font-bold mt-5">MDN Web Docs Glossary: Definitions of Web-related terms</h2>
                     <p className="mt-2 text-gray-300">
                         Web technologies contain long lists of jargon and abbreviations that are used in documentation and coding. This glossary provides definitions of words and abbreviations you need to know to successfully understand and build for the web.
                     </p>

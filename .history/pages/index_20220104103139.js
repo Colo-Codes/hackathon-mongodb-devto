@@ -53,7 +53,7 @@ export default function Home() {
           <Hero />
           <main className="flex flex-col items-center justify-center w-full flex-1 sm:px-20">
             <Definitions definitions={currentDefinitions} />
-            {/* <Pagination definitionsPerPage={definitionsPerPAge} totalDefinitions={definitions.length} paginate={paginate} currentPage={currentPage} /> */}
+            <Pagination definitionsPerPage={definitionsPerPAge} totalDefinitions={definitions.length} paginate={paginate} currentPage={currentPage} />
           </main>
         </Container>
         <Footer />

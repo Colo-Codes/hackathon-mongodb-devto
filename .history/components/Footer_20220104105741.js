@@ -8,10 +8,8 @@ const Footer = () => {
                 <div className="text-md text-indigo-500 hover:text-indigo-400 cursor-pointer">
                     <Link href="/">MONGODB + DEV.TO HACKATHON - By Damian Demasi</Link>
                 </div>
-                <p className="text-gray-400">This web application was created as part of the MongoDB & DEV.to hackathon during the first week of 2022.</p>
                 <p className="py-2 text-gray-500 sm:py-0">&copy; {new Date().getFullYear()}</p>
             </div>
-
         </footer>
     );
 };

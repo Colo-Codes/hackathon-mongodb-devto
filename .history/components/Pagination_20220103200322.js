@@ -25,7 +25,7 @@ export const Pagination = ({
                         onClick={() =>
                             currentPage > 1 && paginate(currentPage - 1)
                         }
-                        className={`py-2 px-4 leading-tight bg-white border border-gray-200border-r-0 rounded hover:text-white mr-4 ${currentPage > 1
+                        className={`py-2 px-4 leading-tight bg-white border border-gray-200border-r-0 ml-0 rounded-l hover:text-white ${currentPage > 1
                             ? 'text-indigo-700 hover:bg-indigo-500'
                             : 'text-gray-700 hover:bg-gray-500 disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 disabled:shadow-none'
                             }`}
@@ -40,7 +40,7 @@ export const Pagination = ({
                                 <li key={number} className=''>
                                     <button
                                         onClick={() => paginate(number)}
-                                        className={`py-2 px-4 leading-tight bg-white border border-gray-200 text-indigo-700 border-r-0 ml-0 rounded hover:bg-indigo-500 hover:text-white cursor-pointer ${number === currentPage && 'bg-indigo-100'}`}>
+                                        className='py-2 px-4 leading-tight bg-white border border-gray-200 text-indigo-700 border-r-0 ml-0 rounded-l hover:bg-indigo-500 hover:text-white cursor-pointer'>
                                         <span>{number}</span>
                                     </button>
                                 </li>
@@ -49,20 +49,9 @@ export const Pagination = ({
                         if (i === currentPage + 5) {
                             return (
                                 <li key={number} className=''>
-                                    <span className='block px-4 py-2 leading-tight bg-white border border-gray-200 text-indigo-700 border-r-0 ml-0 rounded'>
+                                    <span className='block px-4 py-2 leading-tight bg-white border border-gray-200 text-indigo-700 border-r-0 ml-0 rounded-l'>
                                         ...
                                     </span>
-                                </li>
-                            );
-                        }
-                        if (i === pageNumbers.length - 1) {
-                            return (
-                                <li key={number} className=''>
-                                    <button
-                                        onClick={() => paginate(number)}
-                                        className={`py-2 px-4 leading-tight bg-white border border-gray-200 text-indigo-700 ml-0 rounded hover:bg-indigo-500 hover:text-white cursor-pointer ${number === currentPage && 'bg-indigo-100'}`}>
-                                        <span>{number}</span>
-                                    </button>
                                 </li>
                             );
                         }
@@ -71,7 +60,7 @@ export const Pagination = ({
                             <li key={number} className=''>
                                 <a
                                     onClick={() => paginate(number)}
-                                    className='py-2 px-4 leading-tight bg-white border border-gray-200 text-indigo-700 border-r-0 ml-0 rounded hover:bg-indigo-500 hover:text-white cursor-pointer'>
+                                    className='py-2 px-4 leading-tight bg-white border border-gray-200 text-indigo-700 border-r-0 ml-0 rounded-l hover:bg-indigo-500 hover:text-white cursor-pointer'>
                                     <span>{number}</span>
                                 </a>
                             </li>
@@ -85,7 +74,7 @@ export const Pagination = ({
                             currentPage < pageNumbers.length &&
                             paginate(currentPage + 1)
                         }
-                        className={`py-2 px-4 leading-tight bg-white border border-gray-200border-r-0 rounded-l hover:text-white ml-8 ${currentPage < pageNumbers.length
+                        className={`py-2 px-4 leading-tight bg-white border border-gray-200border-r-0 ml-0 rounded-l hover:text-white ${currentPage < pageNumbers.length
                             ? 'text-indigo-700 hover:bg-indigo-500'
                             : 'text-gray-700 hover:bg-gray-500 disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 disabled:shadow-none'
                             }`}

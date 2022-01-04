@@ -12,7 +12,7 @@ const Hero = () => {
                 objectFit="cover"
                 className="absolute z-0"
             />
-            <div className="bg-gray-900 bg-opacity-70 flex items-center h-full absolute w-full z-10">
+            <div className="bg-gray-900 bg-opacity-70 flex items-center  absolute w-full z-10">
                 <div className="p-10 max-w-xl">
                     <h2 className="text-2xl text-white font-bold">MDN Web Docs Glossary: Definitions of Web-related terms</h2>
                     <p className="mt-2 text-gray-300">

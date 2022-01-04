@@ -84,7 +84,7 @@ export const Header = () => {
 
                 <div className="relative mt-6 max-w-lg mx-auto">
                     <span className="absolute inset-y-0 left-0 pl-3 flex items-center">
-                        <SearchIcon className="ml-5 h-5 w-5 text-indigo-600" />
+                        <SearchIcon className="ml-5 h-5 w-5 text-indigo-500" />
                     </span>
                     <form onSubmit={handleSubmit} className='flex'>
                         <input
@@ -95,7 +95,7 @@ export const Header = () => {
                             value={searchTerm}
                             required
                         />
-                        <button type="submit" onClick={handleSubmit} className="ml-5 py-2 px-4 leading-tight text-white border border-gray-200border-r-0 rounded-md hover:text-white mr-4 bg-indigo-600 hover:bg-indigo-400">Search</button>
+                        <button type="submit" onClick={handleSubmit} className="ml-5 py-2 px-4 leading-tight text-white border border-gray-200border-r-0 rounded-md hover:text-white mr-4 bg-indigo-700 hover:bg-indigo-500">Search</button>
                     </form>
                     {autoComplete.length > 0 && (
                         < ul className='absolute inset-x-0 top-full bg-indigo-200 border border-indigo-500 rounded-md z-20'>
