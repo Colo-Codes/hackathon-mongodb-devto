@@ -8,37 +8,9 @@ import Definitions from '../components/Definitions';
 import Footer from '../components/Footer';
 import { Pagination } from '../components/Pagination';
 
-// const REALM_APP_ID = 'hackathon_app-bsvkg';
-
 export default function Home() {
-  const [definitions, setDefinitions] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [definitionsPerPAge, setDefinitionsPerPage] = useState(10);
 
-  useEffect(async () => {
-    const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
-    // Get the app defined on MongoDB
-    const app = new Realm.App({ id: REALM_APP_ID });
-    // Credential to access the app (anonymous user)
-    const credentials = Realm.Credentials.anonymous();
-
-    try {
-      // Log in to the app using the credentials
-      const user = await app.logIn(credentials);
-      // Call the serverless function defined on MongoDB to get all the data
-      const allDefinitions = await user.functions.getAllDefinitions();
-      // Store the data on a state
-      setDefinitions(allDefinitions);
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
-
-  const lastDefinitionIndex = currentPage * definitionsPerPAge;
-  const firstDefinitionIndex = lastDefinitionIndex - definitionsPerPAge;
-  const currentDefinitions = definitions.slice(firstDefinitionIndex, lastDefinitionIndex);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2" >
@@ -52,8 +24,8 @@ export default function Home() {
         <Container>
           <Hero />
           <main className="flex flex-col items-center justify-center w-full flex-1 sm:px-20">
-            <Definitions definitions={currentDefinitions} />
-            {/* <Pagination definitionsPerPage={definitionsPerPAge} totalDefinitions={definitions.length} paginate={paginate} currentPage={currentPage} /> */}
+            {/* <Definitions definitions={currentDefinitions} /> */}
+            <Pagination itemsPerPage={10} />
           </main>
         </Container>
         <Footer />
