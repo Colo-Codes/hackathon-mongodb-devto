@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from "react";
 import * as Realm from 'realm-web';
-import parse from 'html-react-parser';
 import { HeartIcon } from "@heroicons/react/solid";
 import Head from "next/head";
 import Header from "../../components/Header";
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
 import Definitions from "../../components/Definitions";
+import Spinner from "../../components/Spinner";
 
 const getFavourites = (e) => {
     const previousFavourites = localStorage.getItem('favourites');
     const newFavourites = previousFavourites ? [...JSON.parse(previousFavourites), e.target.value] : [e.target.value];
     localStorage.setItem('favourites', JSON.stringify(newFavourites));
-    console.log('>> newFavourites', newFavourites);
-
 };
-
-// const removeFavourites = (e) => {
-//     console.log('>> removeFavourites', e.target.value);
-// };
 
 const Favourites = () => {
     const [definitions, setDefinitions] = useState([]);
+    const [isQuerying, setIsQuerying] = useState(false);
 
-    const favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+    const favourites = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('favourites')) : [];
 
     useEffect(async () => {
+        setIsQuerying(true);
         const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
         // Get the app defined on MongoDB
         const app = new Realm.App({ id: REALM_APP_ID });
@@ -42,6 +38,7 @@ const Favourites = () => {
         } catch (error) {
             console.error(error);
         }
+        setIsQuerying(false);
     }, []);
 
     return (
@@ -53,6 +50,8 @@ const Favourites = () => {
             <div className="bg-white w-full min-h-screen">
                 <Header />
                 <Container>
+                    <HeartIcon className="w-10 h-10 m-auto text-indigo-700" />
+                    <Spinner isQuerying={isQuerying} />
                     <div className="flex items-center">
                         <Definitions definitions={definitions.filter((definition) => {
                             return favourites.includes(definition.title);

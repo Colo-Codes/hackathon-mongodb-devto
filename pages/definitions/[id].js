@@ -14,7 +14,7 @@ export const DefinitionDetails = () => {
     const { query } = useRouter();
 
     useEffect(async () => {
-        // add your Realm App Id to the .env.local file
+        // Realm App Id located in the .env.local file (not shared on the repository)
         const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
         const app = new Realm.App({ id: REALM_APP_ID });
         const credentials = Realm.Credentials.anonymous();

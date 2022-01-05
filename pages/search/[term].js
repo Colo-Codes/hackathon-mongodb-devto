@@ -7,7 +7,6 @@ import * as Realm from "realm-web";
 import Header from "../../components/Header";
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
-import DefinitionDetail from '../../components/DefinitionDetail';
 import Definitions from '../../components/Definitions';
 
 export const DefinitionDetails = () => {
@@ -15,24 +14,20 @@ export const DefinitionDetails = () => {
     const { query } = useRouter();
 
     useEffect(async () => {
-        console.log('New query: ', query);
         if (query.term) {
-            // add your Realm App Id to the .env.local file
+            // Realm App Id located in the .env.local file (not shared on the repository)
             const REALM_APP_ID = process.env.NEXT_PUBLIC_REALM_APP_ID;
             const app = new Realm.App({ id: REALM_APP_ID });
             const credentials = Realm.Credentials.anonymous();
             try {
                 const user = await app.logIn(credentials);
                 const searchDefinitions = await user.functions.searchDefinitions(query.term);
-                console.log('searchDefinitions', searchDefinitions);
                 setDefinitions(() => searchDefinitions);
             } catch (error) {
                 console.error(error);
             }
-            console.log('definitions', definitions);
         }
     }, [query]);
-
 
     return (
         <>
@@ -46,6 +41,7 @@ export const DefinitionDetails = () => {
                         <Header />
                         <Container>
                             <h3 className='text-gray-400 italic'><strong>Top 10</strong> definitions that match your search query: <span className='text-indigo-400'>{query.term}</span></h3>
+                            {/* Slice definitions array in case there are more than 10 values */}
                             <Definitions definitions={definitions.slice(0, 10)} />
                         </Container>
                         <Footer />
