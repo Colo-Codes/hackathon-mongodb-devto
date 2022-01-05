@@ -24,7 +24,7 @@ The app was developed using:
 
 The project is basically a glossary search app. The user can search a web development related term and save it as a favourite.
 
-![Application tour](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kfe8u14k4kmlnbfjlywz.gif)
+<img width="100%" style="width:100%" src="https://media.giphy.com/media/qurkLEBsTjs1uFWNtu/giphy.gif">
 
 On the start page, the app will present a list with all the terms that are present on the MongoDB database. As there are quite a lot of them, they are paginated.
 
