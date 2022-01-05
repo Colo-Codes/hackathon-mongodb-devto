@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {
     DocumentSearchIcon,
@@ -49,6 +49,22 @@ export const Header = () => {
         });
     };
 
+    // Close auto complete suggestions on click outside them
+    const ref = useRef(null);
+
+    const handleClickOutside = (e) => {
+        if (ref.current && !ref.current.contains(e.target)) {
+            setAutoComplete([]);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+        };
+    }, [ref]);
+
     return (
         <div>
             <header>
@@ -92,13 +108,13 @@ export const Header = () => {
                             type="text"
                             placeholder="Search a web related term"
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            value={searchTerm}
+                            value={searchTerm || ""}
                             required
                         />
-                        <button type="submit" onClick={handleSubmit} className="ml-5 py-2 px-4 leading-tight text-white border border-gray-200border-r-0 rounded-md hover:text-white mr-4 bg-indigo-600 hover:bg-indigo-400">Search</button>
+                        <button type="submit" className="ml-5 py-2 px-4 leading-tight text-white border border-gray-200border-r-0 rounded-md hover:text-white mr-4 bg-indigo-600 hover:bg-indigo-400">Search</button>
                     </form>
                     {autoComplete.length > 0 && (
-                        < ul className='ml-5 mr-28 absolute inset-x-0 top-full bg-indigo-200 border border-indigo-500 rounded-md z-20'>
+                        < ul ref={ref} className='ml-5 mr-28 absolute inset-x-0 top-full bg-indigo-200 border border-indigo-500 rounded-md z-20'>
                             {autoComplete.map((definition) => (
                                 <li
                                     key={definition._id}
